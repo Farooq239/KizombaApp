@@ -14,9 +14,7 @@ import Header from '../../components/Header';
 import AppStyle from '../../styles/AppStyle';
 import { ColorSet, FamilySet, screenHeight, screenWidth } from '../../styles';
 import Input from '../../components/Input';
-import { userData } from '../../assets/dummy/videoData';
-import DjsFlatlist from '../../components/ListData/djsFlatlist';
-import { djsData } from '../../assets/dummy/djsData';
+import { partyData, profData, userData } from '../../assets/dummy/videoData';
 
 const PartyHome: React.FC<{ navigation: any, route: any }> = ({ navigation, route }) => {
     return (
@@ -28,11 +26,11 @@ const PartyHome: React.FC<{ navigation: any, route: any }> = ({ navigation, rout
                     leftIcon />
             </View>
             <ScrollView style={styles.mapView}>
-                {userData.map((item: any, index: any) => {
+                {partyData.map((item: any, index: any) => {
                     return (
                         <View style={{ height: screenHeight.height42 }}>
                             <View style={styles.cardView}>
-                                <Image source={{ uri: item.avatarUri }} style={styles.cardImage} />
+                                <Image source={item.avatarUri} style={styles.cardImage} />
                             </View>
                             <Text style={[styles.nameText, { marginLeft: 10, marginTop: 10 }]}>{item.name}</Text>
                         </View>
@@ -41,12 +39,12 @@ const PartyHome: React.FC<{ navigation: any, route: any }> = ({ navigation, rout
                 <View style={{ paddingTop: 30 }}>
                     <FlatList
                         horizontal
-                        data={djsData}
+                        data={userData}
                         renderItem={({ item }) => {
                             return (
                                 <View>
                                     <View style={styles.circleImageView}>
-                                        <Image source={{ uri: item.avatarUri }} style={styles.circleImage} />
+                                        <Image source={item.avatarUri} style={styles.circleImage} />
                                     </View>
                                     <Text style={[{ color: 'white' }]}>{item.name}</Text>
                                 </View>
@@ -58,12 +56,12 @@ const PartyHome: React.FC<{ navigation: any, route: any }> = ({ navigation, rout
                 <View style={{ paddingTop: 30 }}>
                     <FlatList
                         horizontal
-                        data={djsData}
+                        data={profData}
                         renderItem={({ item }) => {
                             return (
                                 <TouchableOpacity onPress={() => navigation.navigate('SelectCountry')}>
                                     <View style={styles.circleImageView}>
-                                        <Image source={{ uri: item.avatarUri }} style={styles.circleImage} />
+                                        <Image source={item.avatarUri} style={styles.circleImage} />
                                     </View>
                                     <Text style={[{ color: 'white' }]}>{item.name}</Text>
                                 </TouchableOpacity>

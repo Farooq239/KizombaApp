@@ -13,7 +13,7 @@ import Header from '../../components/Header';
 import AppStyle from '../../styles/AppStyle';
 import { ColorSet, FamilySet, screenHeight, screenWidth } from '../../styles';
 import Input from '../../components/Input';
-import { userData } from '../../assets/dummy/videoData';
+import { selectedDj, userData } from '../../assets/dummy/videoData';
 
 const SelectedDj: React.FC<{ navigation: any, route: any }> = ({ navigation, route }) => {
     const { item } = route.params;
@@ -22,7 +22,7 @@ const SelectedDj: React.FC<{ navigation: any, route: any }> = ({ navigation, rou
             <Header left />
             <TouchableOpacity style={[styles.itemView, , { marginLeft: 40, borderWidth: 0 }]} onPress={() => navigation.navigate('PartyHome')}>
                 <View style={[styles.avatarView]}>
-                    <Image source={{ uri: item.avatarUri }} style={styles.avatarImage} />
+                    <Image source={item.avatarUri} style={styles.avatarImage} />
                 </View>
                 <View style={styles.captionView}>
                     <View style={AppStyle.row}>
@@ -34,12 +34,12 @@ const SelectedDj: React.FC<{ navigation: any, route: any }> = ({ navigation, rou
                 </View>
             </TouchableOpacity>
             <ScrollView style={styles.mapView}>
-                {userData.map((item: any, index: any) => {
+                {selectedDj.map((item: any, index: any) => {
                     return (
                         <View style={{ height: screenHeight.height42 }}>
                             <Text style={[styles.nameText, { marginLeft: 10, marginTop: 10 }]}>{item.name}</Text>
                             <View style={styles.cardView}>
-                                <Image source={{ uri: item.avatarUri }} style={styles.cardImage} />
+                                <Image source={item.avatarUri} style={styles.cardImage} />
                             </View>
                         </View>
                     )

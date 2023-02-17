@@ -20,16 +20,13 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
     <SafeAreaView style={[AppStyle.flex1, { backgroundColor: ColorSet.backgroundColor }]}>
       <Header homeHeader title="kizombaapp" />
       <View style={styles.searchContainer}>
-        {/* <Input
-          placeholder="Trouvez une soirée"
-          leftIcon /> */}
       </View>
       <ScrollView style={styles.mapView}>
         {userData.map((item: any, index: any) => {
           return (
             <TouchableOpacity style={styles.itemView} onPress={() => navigation.navigate('SelectedDj', { item })}>
               <View style={styles.avatarView}>
-                <Image source={{ uri: item.avatarUri }} style={styles.avatarImage} />
+                <Image source={item.avatarUri} style={styles.avatarImage} />
               </View>
               <View style={styles.captionView}>
                 <View style={AppStyle.row}>

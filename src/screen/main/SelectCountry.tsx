@@ -23,10 +23,12 @@ const SelectCountry: React.FC<{ navigation: any, route: any }> = ({ navigation, 
         if (type === 'END_DATE') {
             setShowPicker(false)
             setSelectedEndDate(date);
+            navigation.navigate('Register')
         } else {
             setSelectedEndDate(null);
             setShowPicker(false)
             setSelectedStartDate(date);
+            navigation.navigate('Register')
         }
     };
     return (

@@ -37,7 +37,7 @@ const ListMapView: React.FC<{ navigation: any, route: any }> = ({ navigation, ro
                     return (
                         <TouchableOpacity style={styles.itemView} onPress={() => navigation.navigate('Login')}>
                             <View style={styles.avatarView}>
-                                <Image source={{ uri: item.avatarUri }} style={styles.avatarImage} />
+                                <Image source={item.avatarUri} style={styles.avatarImage} />
                             </View>
                             <View style={styles.captionView}>
                                 <View style={AppStyle.row}>
@@ -82,8 +82,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     avatarImage: {
-        height: 120,
-        width: 100,
+        height: 80,
+        width: 80,
     },
     captionView: {
         width: screenWidth.width70,
